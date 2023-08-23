@@ -151,13 +151,20 @@ class MainActivity : AppCompatActivity() {
                 cartItemsAdapter.setItems(cartItems)
             }
             onRemoveCountClickListener = OnCartRemoveCountClickListener { item ->
-                cartItems = cartItems.map {
-                    if (it.id == item.id) {
-                        it.copy(count = it.count - 1)
+                var nullableCartItems = mutableListOf<CartItem?>()
+                nullableCartItems.addAll(cartItems)
+                nullableCartItems = nullableCartItems.map {
+                    if (it?.id == item.id) {
+                        if (it.count == 1) {
+                            null
+                        } else {
+                            it.copy(count = it.count - 1)
+                        }
                     } else {
                         it
                     }
-                }
+                }.toMutableList()
+                cartItems = nullableCartItems.filterNotNull()
                 cartItemsAdapter.setItems(cartItems)
             }
         }
