@@ -13,5 +13,6 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="color_lbl_price">@color/lbl_price</item>
     </style>
 </resources>
