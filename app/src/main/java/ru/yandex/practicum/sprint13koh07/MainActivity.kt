@@ -176,10 +176,12 @@ class MainActivity : AppCompatActivity() {
     private fun onBottomNavigationItemSelected(itemId: Int): Boolean {
         return when (itemId) {
             R.id.catalog -> {
+                binding.toolbar.setTitle(R.string.catalog_title)
                 changeCurrentScreenMode(ScreenMode.CATALOG)
                 true
             }
             R.id.cart -> {
+                binding.toolbar.setTitle(R.string.cart_title)
                 changeCurrentScreenMode(ScreenMode.CART)
                 true
             }
