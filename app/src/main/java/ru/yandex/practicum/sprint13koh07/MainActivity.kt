@@ -107,6 +107,7 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
                 catalogItemsAdapter.setItems(catalogItems)
+                binding.cartEmptyTitle.visibility = View.GONE
             }
             onAddCountClickListener = OnAddCountClickListener { item ->
                 catalogItems = catalogItems.map {
@@ -166,8 +167,10 @@ class MainActivity : AppCompatActivity() {
                 }.toMutableList()
                 cartItems = nullableCartItems.filterNotNull()
                 cartItemsAdapter.setItems(cartItems)
+                binding.cartEmptyTitle.visibility = View.VISIBLE
             }
         }
+
     }
 
     private fun onBottomNavigationItemSelected(itemId: Int): Boolean {
